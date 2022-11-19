@@ -1,8 +1,12 @@
-import React from 'react';
+import { BrowserRouter } from "react-router-dom"
+import Rotas from "./Rotas.js"
+import "./App.css"
 
 function App() {
   return (
-    <h1>Bem-Vindo a Hogwarts de Azkaba</h1>
+    <BrowserRouter>
+        <Rotas/>
+    </BrowserRouter>
   );
 }
 

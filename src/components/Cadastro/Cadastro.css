@@ -1,0 +1,90 @@
+h2 {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.containerCadastro {
+    display: flex;
+    width: 100vh;
+}
+
+.container_entrada_dados_esquerdo .container_entrada_dados_direito {
+    display: flex;
+    flex-direction: column;
+}
+
+.container_entrada_dados_direito {
+    display: flex;
+    flex-direction: column;
+}
+
+.dados_nome {
+    display: flex;
+}
+
+.dados_academico {
+    display: flex;
+    margin-left: 200px;
+}
+
+.dados_cpf {
+    display: flex;
+}
+
+.dados_disciplina {
+    display: flex;
+    margin-left: 200px;
+}
+
+.botoes {
+    display: flex;
+    margin-left: 200px;
+}
+
+#btn_atualizar {
+    background-color: #26335D;
+    width: 125px;
+    height: 45px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    align-items: center;
+    border: 0;
+}
+
+#btn_cadastrar {
+    background-color: #26335D;
+    width: 125px;
+    height: 45px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    align-items: center;
+    border: 0;
+}
+
+#btn_atualizar:hover {
+    background-color: #394670;
+}
+
+#btn_cadastrar:hover {
+    background-color: #394670;
+}
+
+input {
+    background-color: #224957;
+    border-radius: 10px;
+    color: #FFFFFF;
+    width: 250px;
+    height: 45px;
+    border: 0;
+    padding-left: 10px;
+}
+
+select {
+    background-color: #224957;
+    border-radius: 10px;
+    color: #FFFFFF;
+    width: 250px;
+    height: 45px;
+    border: 0;
+    padding-left: 10px;
+}

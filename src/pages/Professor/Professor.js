@@ -1,10 +1,16 @@
+import Cadastro from "../../components/Cadastro/Cadastro";
 import "./Professor.css"
 
 function Professor() {
     return (
         <div className="page_container">
             <div className="content_wrap">
-                <h1>Professor</h1>
+                <div>
+                    <Cadastro/>
+                </div>
+                <div>
+                    Select
+                </div>
             </div>
         </div>
     );

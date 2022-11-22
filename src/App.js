@@ -1,11 +1,15 @@
-import { BrowserRouter } from "react-router-dom"
-import Rotas from "./Rotas.js"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import "./App.css"
+import Home from "./pages/Home/Home.js";
+import Login from "./pages/Login/Login.js";
 
 function App() {
   return (
     <BrowserRouter>
-        <Rotas/>
+      <Routes>
+        <Route path="/" element={<Login/>}/>
+        <Route path="*" element={<Home/>}/>
+      </Routes>
     </BrowserRouter>
   );
 }

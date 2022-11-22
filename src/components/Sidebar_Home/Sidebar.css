@@ -46,3 +46,7 @@
 .sidebar_list #active {
     background-color: #293846;
 }
+
+a {
+    text-decoration: none;
+}

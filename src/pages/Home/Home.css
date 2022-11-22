@@ -1,4 +1,4 @@
-.page_container {
+.page_container_home {
     display: flex;
     flex-direction: column;
     min-height: 100vh;

@@ -1,13 +1,11 @@
-import "./Professor.css"
-
-function Professor() {
+function BemVindo() {
     return (
         <div className="page_container">
             <div className="content_wrap">
-                <h1>Professor</h1>
+                <h1>Bem-Vindo</h1>
             </div>
         </div>
     );
 };
 
-export default Professor;
+export default BemVindo;

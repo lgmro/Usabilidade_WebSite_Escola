@@ -1,0 +1,22 @@
+.header_home {
+    display: flex;
+    justify-content: space-between;
+    height: 91px;
+    background-color: #224957;
+}
+
+.dados_funcionario {
+  color: white;
+  padding-right: 87px;
+}
+
+.dados_funcionario h3 {
+    margin-bottom: 7px;
+    margin-top: 16px;
+}
+
+#logo_escola_home {
+    width: 96px;
+    height: 77px;
+    padding-left: 13px;
+}

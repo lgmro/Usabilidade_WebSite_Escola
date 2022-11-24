@@ -11,8 +11,10 @@ function Home() {
             <div className="content_wrap">
                 <HeaderHome/>
                 <div className="container_conteudo">
-                    <Sidebar/>     
-                    <NavPage/>
+                    <Sidebar/>   
+                    <div className="body_menus">
+                        <NavPage/>
+                    </div>      
                 </div>
             </div>
             <Footer/>

@@ -11,3 +11,8 @@
 .container_conteudo {
     display: flex;
 }
+
+.body_menus {
+    background-color: white;
+    width: 100%;
+}

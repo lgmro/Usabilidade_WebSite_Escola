@@ -23,23 +23,28 @@
     margin-right: 30px;
 }
 
-.dados ul li:last-child {
-    
-}
-
 .dados_two {
-    margin-top: 20px;
-    margin-right: 220px;
+    margin-right: 260px;
+    width: 100px;
 }
 
 .dados_three {
-    margin-top: 20px;
-    margin-right: 210px;
+    margin-right: 260px;
+    width: 60px;
 }
 
 .dados_four {
-    margin-top: 20px;
-    margin-right: 210px;
+    margin-right: 330px;
+    width: 100px;
+}
+
+.dados_five {
+    margin-right: 80px;
+    width: 100px;
+}
+
+.dados_six {
+    margin-right: 80px;
 }
 
 @media (max-width: 1700px) {

@@ -23,21 +23,21 @@ h2 {
     padding-top: 32px;
 }
 
-.dados_nome {
+.campo_um {
     display: flex;
     margin-bottom: 25px;
 }
 
-.dados_academico {
+.campo_tres {
     display: flex;
     margin-bottom: 25px;
 }
 
-.dados_cpf {
+.campo_dois {
     display: flex;
 }
 
-.dados_disciplina {
+.campo_quatro {
     display: flex;
 }
 
@@ -66,24 +66,24 @@ select {
     border: 0;
 }
 
-.dados_nome div h2 {
+.campo_um div h2 {
     width: 75px;
     font-size: 23px;
  
 }
 
-.dados_cpf div h2 {
+.campo_dois div h2 {
     width: 75px;
     font-size: 23px;
 }
 
-.dados_academico div h2 {
+.campo_tres div h2 {
     width: 200px;
     font-size: 23px;
  
 }
 
-.dados_disciplina div h2 {
+.campo_quatro div h2 {
     width: 200px;
     font-size: 23px;
 }

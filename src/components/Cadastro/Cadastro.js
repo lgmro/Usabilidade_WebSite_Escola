@@ -1,45 +1,68 @@
 import "./Cadastro.css"
+import React from 'react';
 
-function Cadastro() {
+function Cadastro(props) {
+    const handleChange = event => {
+        const input = event.target;
+        const value = input.value;
+    
+        props.onChangeNome(value);
+      };
     return (
         <div className="containerCadastro">
             <div className="container_entrada_dados_esquerdo">
-                <div className="dados_nome">
+                { props.campo_um === "" ? null 
+                : (
+                <div className="campo_um">
                     <div>
-                        <h2>Nome: </h2>
+                        <h2>{props.campo_um}</h2>
                     </div>
                     <div>
-                        <input type="text" name="nome" id="input_nome"/>
+                        <input type="text" name="input_um" id="input_um" onChange={handleChange}/>
                     </div> 
                 </div>
-                <div className="dados_cpf">
+                )}
+                { props.campo_dois === "" ? null 
+                : (
+                <div className="campo_dois">
                     <div>
-                        <h2>CPF: </h2>
+                        <h2>{props.campo_dois}</h2>
                     </div>
                     <div>
-                         <input type="text" name="cpf" id="input_cpf"/>
+                         <input type="text" name="input_dois" id="input_dois"/>
                     </div>
                 </div>
+                )}
             </div>
             <div className="container_entrada_dados_direito">
-                <div className="dados_academico">
+            { props.campo_tres === "" ? null 
+                : (
+                <div className="campo_tres">
                     <div>
-                        <h2>Título acadêmico: </h2>
+                        <h2>{props.campo_tres}</h2>
                     </div>
                     <div>
-                        <input type="text" name="nome" id="input_academico"/>
+                        <input type="text" name="input_tres" id="input_tres"/>
                     </div> 
                 </div>
-                <div className="dados_disciplina">
+                )}
+                { props.campo_quatro === "" ? null 
+                : (
+                <div className="campo_quatro">
                     <div>
-                        <h2>Disciplina: </h2>
+                        <h2>{props.campo_quatro}</h2>
                     </div>
                     <div>
-                        <select>
-                            <option>Disciplina 01</option>
+                        <select id="input_quatro">
+                            {props.lista_Disciplina.map((val, key) => {
+                                return (
+                                    <option key={key}>{val.nome}</option>
+                                )
+                            })};
                         </select>
                     </div>
                 </div>
+                )}
             </div>
         </div>
     )

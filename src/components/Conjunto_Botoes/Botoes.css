@@ -1,0 +1,35 @@
+.botoes {
+    display: flex;
+}
+
+.botoes div {
+    padding: 5px;
+}
+
+#btn_atualizar {
+    background-color: #26335D;
+    width: 125px;
+    height: 45px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    align-items: center;
+    border: 0;
+}
+
+#btn_cadastrar {
+    background-color: #26335D;
+    width: 125px;
+    height: 45px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    align-items: center;
+    border: 0;
+}
+
+#btn_atualizar:hover {
+    background-color: #394670;
+}
+
+#btn_cadastrar:hover {
+    background-color: #394670;
+}

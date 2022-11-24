@@ -1,0 +1,54 @@
+.containerBodySelectTitles {
+    margin-top: 70px;
+    background-color: #D9D9D9;
+    height: 70px;
+}
+
+.titulo_dados ul {
+    display: flex;
+    margin-left: 120px
+}
+
+.titulo_dados ul li {
+    margin-right: 250px;
+    font-size: 24px;
+    color: #252B42;
+    white-space: nowrap;
+}
+
+
+@media (max-width: 1700px) {
+    .titulo_dados ul li {
+        margin-right: 300px;
+    }
+    
+    .titulo_dados ul li:last-child {
+        margin-right: 10px;
+
+    }
+    
+}
+
+@media (max-width: 1577px) {
+    .titulo_dados ul li {
+        margin-right: 280px;
+    }
+    
+    .titulo_dados ul li:last-child {
+        margin-right: 10px;
+
+    }
+    
+}
+
+@media (max-width: 1506px) {
+    .titulo_dados ul li {
+        margin-right: 200px;
+    }
+    
+    .titulo_dados ul li:last-child {
+        margin-right: 10px;
+
+    }
+    
+}

@@ -1,58 +1,55 @@
 .containerBodySelect {
-    margin-top: 70px;
     background-color: #D9D9D9;
-    height: 100vh;
+    height: 60px;
 }
 
-.titulo_dados ul {
+.dados ul {
     display: flex;
-    right: 0;
-    position: absolute;
 }
 
-.titulo_dados ul li {
-    margin-right: 350px;
-    font-size: 24px;
+#logo_select {
+    width: 40px;
+    height: 40px;
+}
+
+.dados ul li {
+    font-size: 14px;
     color: #252B42;
+    white-space: nowrap;
+    
 }
 
-.titulo_dados ul li:last-child {
-    margin-right: 70px;
+.dados ul li:first-child {
+    margin-right: 30px;
+}
 
+.dados ul li:last-child {
+    
+}
+
+.dados_two {
+    margin-top: 20px;
+    margin-right: 220px;
+}
+
+.dados_three {
+    margin-top: 20px;
+    margin-right: 210px;
+}
+
+.dados_four {
+    margin-top: 20px;
+    margin-right: 210px;
 }
 
 @media (max-width: 1700px) {
-    .titulo_dados ul li {
-        margin-right: 300px;
-    }
-    
-    .titulo_dados ul li:last-child {
-        margin-right: 10px;
 
-    }
-    
 }
 
 @media (max-width: 1577px) {
-    .titulo_dados ul li {
-        margin-right: 280px;
-    }
-    
-    .titulo_dados ul li:last-child {
-        margin-right: 10px;
-
-    }
     
 }
 
 @media (max-width: 1506px) {
-    .titulo_dados ul li {
-        margin-right: 200px;
-    }
-    
-    .titulo_dados ul li:last-child {
-        margin-right: 10px;
-
-    }
     
 }

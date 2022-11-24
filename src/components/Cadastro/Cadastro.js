@@ -40,14 +40,6 @@ function Cadastro() {
                         </select>
                     </div>
                 </div>
-                <div className="botoes">
-                    <div>
-                        <button id="btn_atualizar">Atualizar</button>
-                    </div>
-                    <div>
-                        <button id="btn_cadastrar">Cadastrar</button>
-                    </div>
-                </div>
             </div>
         </div>
     )

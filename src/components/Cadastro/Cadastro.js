@@ -2,12 +2,33 @@ import "./Cadastro.css"
 import React from 'react';
 
 function Cadastro(props) {
-    const handleChange = event => {
+    const handleChangeCampoUm = event => {
         const input = event.target;
         const value = input.value;
     
-        props.onChangeNome(value);
-      };
+        props.onChangeCampoUm(value);
+    };
+      
+    const handleChangeCampoDois= event => {
+        const input = event.target;
+        const value = input.value;
+    
+        props.onChangeCampoDois(value);
+    };
+
+    const handleChangeCampoTres = event => {
+        const input = event.target;
+        const value = input.value;
+    
+        props.onChangeCampoTres(value);
+    };
+
+    const handleChangeCampoQuatro = event => {
+        const index = event.target.selectedIndex;
+        const el = event.target.childNodes[index];
+        const option =  el.getAttribute('id');  
+        props.onChangeCampoQuatro(option);
+    };
     return (
         <div className="containerCadastro">
             <div className="container_entrada_dados_esquerdo">
@@ -18,7 +39,7 @@ function Cadastro(props) {
                         <h2>{props.campo_um}</h2>
                     </div>
                     <div>
-                        <input type="text" name="input_um" id="input_um" onChange={handleChange}/>
+                        <input value={props.editar.campo_um} type="text" name="input_um" id="input_um" onChange={handleChangeCampoUm}/>
                     </div> 
                 </div>
                 )}
@@ -29,7 +50,7 @@ function Cadastro(props) {
                         <h2>{props.campo_dois}</h2>
                     </div>
                     <div>
-                         <input type="text" name="input_dois" id="input_dois"/>
+                         <input value={props.editar.campo_dois} type="text" name="input_dois" id="input_dois" onChange={handleChangeCampoDois}/>
                     </div>
                 </div>
                 )}
@@ -42,7 +63,7 @@ function Cadastro(props) {
                         <h2>{props.campo_tres}</h2>
                     </div>
                     <div>
-                        <input type="text" name="input_tres" id="input_tres"/>
+                        <input value={props.editar.campo_tres} type="text" name="input_tres" id="input_tres" onChange={handleChangeCampoTres}/>
                     </div> 
                 </div>
                 )}
@@ -53,10 +74,11 @@ function Cadastro(props) {
                         <h2>{props.campo_quatro}</h2>
                     </div>
                     <div>
-                        <select id="input_quatro">
+                        <select id="input_quatro" onChange={handleChangeCampoQuatro}>
+                            <option disabled selected value>Selecione uma opção</option>
                             {props.lista_Disciplina.map((val, key) => {
                                 return (
-                                    <option key={key}>{val.nome}</option>
+                                    <option id={val.id} key={key}>{val.nome}</option>
                                 )
                             })};
                         </select>

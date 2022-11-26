@@ -30,6 +30,14 @@
     background-color: #394670;
 }
 
+#btn_atualizar:disabled {
+    background-color: #5a6896;
+}
+
+#btn_cadastrar:disabled {
+    background-color: #5a6896;
+}
+
 #btn_cadastrar:hover {
     background-color: #394670;
 }

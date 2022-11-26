@@ -39,7 +39,7 @@ function Cadastro(props) {
                         <h2>{props.campo_um}</h2>
                     </div>
                     <div>
-                        <input value={props.editar.campo_um} type="text" name="input_um" id="input_um" onChange={handleChangeCampoUm}/>
+                        <input value={props.valueCampoUm} type="text" name="input_um" id="input_um" onChange={handleChangeCampoUm}/>
                     </div> 
                 </div>
                 )}
@@ -50,7 +50,7 @@ function Cadastro(props) {
                         <h2>{props.campo_dois}</h2>
                     </div>
                     <div>
-                         <input value={props.editar.campo_dois} type="text" name="input_dois" id="input_dois" onChange={handleChangeCampoDois}/>
+                         <input value={props.valueCampoDois} type="text" name="input_dois" id="input_dois" onChange={handleChangeCampoDois}/>
                     </div>
                 </div>
                 )}
@@ -63,7 +63,7 @@ function Cadastro(props) {
                         <h2>{props.campo_tres}</h2>
                     </div>
                     <div>
-                        <input value={props.editar.campo_tres} type="text" name="input_tres" id="input_tres" onChange={handleChangeCampoTres}/>
+                        <input value={props.valueCampoTres} type="text" name="input_tres" id="input_tres" onChange={handleChangeCampoTres}/>
                     </div> 
                 </div>
                 )}
@@ -74,11 +74,11 @@ function Cadastro(props) {
                         <h2>{props.campo_quatro}</h2>
                     </div>
                     <div>
-                        <select id="input_quatro" onChange={handleChangeCampoQuatro}>
-                            <option disabled selected value>Selecione uma opção</option>
+                        <select id="input_quatro" onChange={handleChangeCampoQuatro} value={props.valueCampoQuatro}>
+                            <option disabled selected value={0}>Selecione uma opção</option>
                             {props.lista_Disciplina.map((val, key) => {
                                 return (
-                                    <option id={val.id} key={key}>{val.nome}</option>
+                                    <option id={val.id} key={key} value={val.id}>{val.nome}</option>
                                 )
                             })};
                         </select>

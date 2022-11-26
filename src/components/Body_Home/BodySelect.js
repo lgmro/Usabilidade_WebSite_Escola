@@ -6,10 +6,10 @@ function BodySelect(props) {
             <div className="dados">
                 <ul>
                     <li><img id="logo_select" src={props.icone} alt="icone"/></li>
-                    <li className="dados_two">{props.dados_um}</li>
-                    <li className="dados_three">{props.dados_dois}</li>
-                    <li className="dados_four">{props.dados_tres}</li>
-                    <li className="dados_five">{props.dados_quatro}</li>
+                    <li className="dados_two">{props.dados.nome}</li>
+                    <li className="dados_three">{props.dados.cpf}</li>
+                    <li className="dados_four">{props.dados.titulo_academico}</li>
+                    <li className="dados_five">{props.dados.disciplina_id}</li>
                 </ul>
             </div>
         </div>

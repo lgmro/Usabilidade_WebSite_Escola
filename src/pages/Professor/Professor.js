@@ -16,6 +16,9 @@ function Professor() {
     const [inputDisciplinaId, setInputDisciplinaId] = useState(0)
     const [todosProfessores, setTodosProfessores] = useState([])
     const [todasDisciplinas, setTodasDisciplinas] = useState([])
+    const [clickEditarButton, setclickEditarButton] = useState(false)
+    const [idProfessorEditar, setidProfessorEditar] = useState(0)
+   
 
     async function cadastrarProfessor() {
         const response = await api.post('professor', {
@@ -24,6 +27,7 @@ function Professor() {
                 titulo_academico: inputTitulo,
                 disciplina_id: inputDisciplinaId
         })
+        console.log(response.data)
         setTodosProfessores([...todosProfessores, {
             nome: inputNome,
             cpf: inputCpf,
@@ -37,14 +41,43 @@ function Professor() {
         setInputDisciplinaId(0)
     }
 
+    async function atualizarProfessor() {
+        const response = await api.put("professor", {
+            id: idProfessorEditar,
+            nome: inputNome,
+            cpf: inputCpf,
+            titulo_academico: inputTitulo,
+            disciplina_id: inputDisciplinaId
+        });
+        
+        setclickEditarButton(false)
+        setInputNome("")
+        setInputCpf("")
+        setInputTitulo("")
+        setInputDisciplinaId(0)
+    }
+
+
+    async function deletarProfessor(idProfessor) {
+        const response = await api.delete("professor", {
+            data: {
+                id: idProfessor
+            }
+        });
+
+        if(response.status === 200) {
+            setTodosProfessores(todosProfessores.filter(professorDeletado => professorDeletado.id !== idProfessor));
+        }
+       
+    }
+
     function carregarDados(professor) {
+        setclickEditarButton(true)
+        setidProfessorEditar(professor.id)
         setInputNome(professor.nome)
         setInputCpf(professor.cpf)
         setInputTitulo(professor.titulo_academico)
         setInputDisciplinaId(professor.disciplina_id)
-        let btnAtualizar = document.getElementById("btn_atualizar")
-        btnAtualizar.disabled = false;
-        btnAtualizar.style.background = "#26335D"
     }
 
     useEffect(()=> {
@@ -68,18 +101,24 @@ function Professor() {
             let btnCadastrar = document.getElementById("btn_cadastrar")
             let btnAtualizar = document.getElementById("btn_atualizar")
 
-            if(inputNome.trim().length === 0 || inputCpf.trim().length === 0 || inputTitulo.trim().length === 0 || inputDisciplinaId === 0) {
-                btnCadastrar.disabled = true;
-                btnCadastrar.style.background = "#5a6896"
+            if (clickEditarButton === false) {
                 btnAtualizar.disabled = true;
                 btnAtualizar.style.background = "#5a6896"
+            }  else {
+                btnAtualizar.disabled = false;
+                btnAtualizar.style.background = "#26335D"
+            }
+
+            if(inputNome.trim().length === 0 || inputCpf.trim().length === 0 || inputTitulo.trim().length === 0 || inputDisciplinaId === 0 || clickEditarButton === true) {
+                btnCadastrar.disabled = true;
+                btnCadastrar.style.background = "#5a6896"
             } else {
                 btnCadastrar.disabled = false;
                 btnCadastrar.style.background = "#26335D"
             }
         }
     ativarDesativarBotoes()
-    }, [inputNome, inputCpf, inputTitulo, inputDisciplinaId])
+    }, [inputNome, inputCpf, inputTitulo, inputDisciplinaId, clickEditarButton])
 
     return (
         <div className="page_container_professor">
@@ -88,7 +127,7 @@ function Professor() {
                     <Cadastro campo_um="Nome:" campo_dois="CPF:" campo_tres="Título acadêmico:" campo_quatro="Disciplina:" lista_Disciplina={todasDisciplinas} onChangeCampoUm={setInputNome} onChangeCampoDois={setInputCpf} onChangeCampoTres={setInputTitulo} onChangeCampoQuatro={setInputDisciplinaId} valueCampoUm={inputNome} valueCampoDois={inputCpf} valueCampoTres={inputTitulo} valueCampoQuatro={inputDisciplinaId}/>
                 </div>
                 <div className="botoes_professor">
-                    <Botoes onclick_botao_cadastrar={cadastrarProfessor} valueCampoUm={inputNome} valueCampoDois={inputCpf} valueCampoTres={inputTitulo} valueCampoQuatro={inputDisciplinaId}/>
+                    <Botoes onclick_botao_cadastrar={cadastrarProfessor} onclick_botao_atualizar={atualizarProfessor} valueCampoUm={inputNome} valueCampoDois={inputCpf} valueCampoTres={inputTitulo} valueCampoQuatro={inputDisciplinaId}/>
                 </div>
                 <div className="body_select">
                     <div className="titles_select">
@@ -98,12 +137,12 @@ function Professor() {
                         <ul className="lista_select">
                             {todosProfessores.map((val, key) => {
                                 return (
-                                    <div className="conjunto_bodyselect">
+                                    <div className="conjunto_bodyselect" key={key}>
 
                                     <li key={key}><BodySelect icone={LogoProfessor} dados={val}/></li>
                                     <div className="botoes_edite_menos">
                                         <li className="botao_editar_class" onClick={() => carregarDados(todosProfessores.find(e => e.id === val.id))}><img id="botao_editar" src={BotaoEditar} alt="icone"/></li>
-                                        <li><img id="botao_menos" src={BotaoMenos} alt="icone"/></li>
+                                        <li  onClick={() => deletarProfessor(val.id)}><img id="botao_menos" src={BotaoMenos} alt="icone"/></li>
                                     </div>
                                     
 

@@ -75,7 +75,7 @@ function Cadastro(props) {
                     </div>
                     <div>
                         <select id="input_quatro" onChange={handleChangeCampoQuatro} value={props.valueCampoQuatro}>
-                            <option disabled selected value={0}>Selecione uma opção</option>
+                            <option disabled defaultValue value={0}>Selecione uma opção</option>
                             {props.lista_Disciplina.map((val, key) => {
                                 return (
                                     <option id={val.id} key={key} value={val.id}>{val.nome}</option>

@@ -9,7 +9,7 @@ function Sidebar() {
             <ul className="sidebar_list">
                 {SidebarData.map((val, key) => {
                     return (
-                        <Link to={val.link}>
+                        <Link to={val.link} key={key}>
                             <li id={location.pathname === val.link ? "active" : ""} className ="row_list"key={key}>
                                 <div id="menu_icone">
                                     <img id="menu_icone_logo" src={val.icon} alt="icone menu"/>

@@ -50,3 +50,28 @@
 a {
     text-decoration: none;
 }
+
+@media (max-width: 1230px) {
+    .row_list #menu_titulo {
+        visibility: hidden;
+    }
+
+    .sidebar_container {
+        width: 60px;
+    }
+
+    #menu_icone_logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .row_list #menu_icone {
+        flex: 100%;
+    }
+
+    .sidebar_list .row_list {
+        justify-content:left;
+        align-items: left;
+    }
+    
+}

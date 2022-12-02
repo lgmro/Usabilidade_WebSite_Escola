@@ -63,3 +63,21 @@
 .titles_select {
     padding-bottom: 0px;
 }
+
+@media (max-width: 1700px) {
+    .botao_editar_class {
+        margin-right: 70px;
+    }
+}
+
+@media (max-width: 1456px) {
+    .titles_select {
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 1146px) {
+    .botao_editar_class {
+        margin-right: 10px;
+    }
+}

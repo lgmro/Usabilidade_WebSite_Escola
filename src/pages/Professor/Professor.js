@@ -17,8 +17,7 @@ function Professor() {
     const [todosProfessores, setTodosProfessores] = useState([])
     const [todasDisciplinas, setTodasDisciplinas] = useState([])
     const [clickEditarButton, setclickEditarButton] = useState(false)
-    const [idProfessorEditar, setidProfessorEditar] = useState(0)
-   
+    const [idProfessorEditar, setidProfessorEditar] = useState(0)   
 
     async function cadastrarProfessor() {
         const response = await api.post('professor', {
@@ -27,18 +26,23 @@ function Professor() {
                 titulo_academico: inputTitulo,
                 disciplina_id: inputDisciplinaId
         })
-        console.log(response.data)
-        setTodosProfessores([...todosProfessores, {
-            nome: inputNome,
-            cpf: inputCpf,
-            titulo_academico: inputTitulo,
-            disciplina_id: inputDisciplinaId
-    }])
+
+        if (response.status === 200) {
+            setTodosProfessores([...todosProfessores, {
+                nome: inputNome,
+                cpf: inputCpf,
+                titulo_academico: inputTitulo,
+                disciplina_id: inputDisciplinaId
+            }])
+        }
+
 
         setInputNome("")
         setInputCpf("")
         setInputTitulo("")
         setInputDisciplinaId(0)
+
+        window.location.reload()
     }
 
     async function atualizarProfessor() {
@@ -47,14 +51,27 @@ function Professor() {
             nome: inputNome,
             cpf: inputCpf,
             titulo_academico: inputTitulo,
-            disciplina_id: inputDisciplinaId
+            disciplina: inputDisciplinaId 
         });
+
+        if(response.status === 200) {
+            setTodosProfessores(todosProfessores.map((professor, key) => {
+                 if(professor.id === idProfessorEditar) {
+                        return {...professor, nome: inputNome, cpf: inputCpf, titulo_academico: inputTitulo, disciplina_id: inputDisciplinaId}
+                } else {
+                    return professor
+                }
+            }))
+        }
         
         setclickEditarButton(false)
         setInputNome("")
         setInputCpf("")
         setInputTitulo("")
         setInputDisciplinaId(0)
+        setidProfessorEditar(0)
+
+        window.location.reload()
     }
 
 
@@ -83,7 +100,7 @@ function Professor() {
     useEffect(()=> {
         async function getProfessores() {
             const response = await api.get('professores')
-            setTodosProfessores(response.data)
+            setTodosProfessores(response.data)    
         }
         getProfessores()
     }, [])
@@ -95,6 +112,13 @@ function Professor() {
         }
         getDisciplinas()
     }, [])
+
+    const nomeDisciplina = (id) => {
+        const currentId = id
+        const foundName = todasDisciplinas.find((item) => item.id === currentId)
+        return foundName?.nome
+        
+    }
 
     useEffect(() => {
         function ativarDesativarBotoes() {
@@ -124,7 +148,7 @@ function Professor() {
         <div className="page_container_professor">
             <div className="content_wrap_professor">
                 <div>     
-                    <Cadastro campo_um="Nome:" campo_dois="CPF:" campo_tres="Título acadêmico:" campo_quatro="Disciplina:" lista_Disciplina={todasDisciplinas} onChangeCampoUm={setInputNome} onChangeCampoDois={setInputCpf} onChangeCampoTres={setInputTitulo} onChangeCampoQuatro={setInputDisciplinaId} valueCampoUm={inputNome} valueCampoDois={inputCpf} valueCampoTres={inputTitulo} valueCampoQuatro={inputDisciplinaId}/>
+                    <Cadastro campo_um="Nome:" campo_dois="CPF:" campo_tres="Título acadêmico:" campo_quatro="Disciplina:" lista_itens={todasDisciplinas} onChangeCampoUm={setInputNome} onChangeCampoDois={setInputCpf} onChangeCampoTres={setInputTitulo} onChangeCampoQuatro={setInputDisciplinaId} valueCampoUm={inputNome} valueCampoDois={inputCpf} valueCampoTres={inputTitulo} valueCampoQuatro={inputDisciplinaId}/>
                 </div>
                 <div className="botoes_professor">
                     <Botoes onclick_botao_cadastrar={cadastrarProfessor} onclick_botao_atualizar={atualizarProfessor} valueCampoUm={inputNome} valueCampoDois={inputCpf} valueCampoTres={inputTitulo} valueCampoQuatro={inputDisciplinaId}/>
@@ -135,17 +159,14 @@ function Professor() {
                     </div>
                     <div className="listar_dados">
                         <ul className="lista_select">
-                            {todosProfessores.map((val, key) => {
+                            {todosProfessores?.map((val, key) => { 
                                 return (
                                     <div className="conjunto_bodyselect" key={key}>
-
-                                    <li key={key}><BodySelect icone={LogoProfessor} dados={val}/></li>
-                                    <div className="botoes_edite_menos">
-                                        <li className="botao_editar_class" onClick={() => carregarDados(todosProfessores.find(e => e.id === val.id))}><img id="botao_editar" src={BotaoEditar} alt="icone"/></li>
-                                        <li  onClick={() => deletarProfessor(val.id)}><img id="botao_menos" src={BotaoMenos} alt="icone"/></li>
-                                    </div>
-                                    
-
+                                        <li key={key}><BodySelect icone={LogoProfessor} dados={val} nomeItem={nomeDisciplina(val.disciplina_id)}/></li>
+                                        <div className="botoes_edite_menos">
+                                            <li className="botao_editar_class" onClick={() => carregarDados(todosProfessores.find(e => e.id === val.id))}><img id="botao_editar" src={BotaoEditar} alt="icone"/></li>
+                                            <li  onClick={() => deletarProfessor(val.id)}><img id="botao_menos" src={BotaoMenos} alt="icone"/></li>
+                                        </div>
                                     </div>
                                 )
                             })}

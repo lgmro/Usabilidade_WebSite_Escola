@@ -14,10 +14,9 @@ h2 {
     margin-left: 30px;
 }
 
-@media (max-width: 1080px) {
-
+#input_quatro {
+    margin-top: 10px;
 }
-
 .containerCadastro {
     display: flex;
     padding-top: 32px;

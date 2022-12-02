@@ -151,7 +151,7 @@ function Professor() {
                     <Cadastro campo_um="Nome:" campo_dois="CPF:" campo_tres="Título acadêmico:" campo_quatro="Disciplina:" lista_itens={todasDisciplinas} onChangeCampoUm={setInputNome} onChangeCampoDois={setInputCpf} onChangeCampoTres={setInputTitulo} onChangeCampoQuatro={setInputDisciplinaId} valueCampoUm={inputNome} valueCampoDois={inputCpf} valueCampoTres={inputTitulo} valueCampoQuatro={inputDisciplinaId}/>
                 </div>
                 <div className="botoes_professor">
-                    <Botoes onclick_botao_cadastrar={cadastrarProfessor} onclick_botao_atualizar={atualizarProfessor} valueCampoUm={inputNome} valueCampoDois={inputCpf} valueCampoTres={inputTitulo} valueCampoQuatro={inputDisciplinaId}/>
+                    <Botoes onclick_botao_cadastrar={cadastrarProfessor} onclick_botao_atualizar={atualizarProfessor}/>
                 </div>
                 <div className="body_select">
                     <div className="titles_select">

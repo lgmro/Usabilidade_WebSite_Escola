@@ -20,7 +20,7 @@ function Professor() {
     const [idProfessorEditar, setidProfessorEditar] = useState(0)   
 
     async function cadastrarProfessor() {
-        const response = await api.post('professor', {
+        const response = await api.post('professores', {
                 nome: inputNome,
                 cpf: inputCpf,
                 titulo_academico: inputTitulo,
@@ -46,12 +46,12 @@ function Professor() {
     }
 
     async function atualizarProfessor() {
-        const response = await api.put("professor", {
+        const response = await api.put("professores", {
             id: idProfessorEditar,
             nome: inputNome,
             cpf: inputCpf,
             titulo_academico: inputTitulo,
-            disciplina: inputDisciplinaId 
+            disciplina_id: inputDisciplinaId 
         });
 
         if(response.status === 200) {
@@ -76,11 +76,7 @@ function Professor() {
 
 
     async function deletarProfessor(idProfessor) {
-        const response = await api.delete("professor", {
-            data: {
-                id: idProfessor
-            }
-        });
+        const response = await api.delete(`professores/${idProfessor}`);
 
         if(response.status === 200) {
             setTodosProfessores(todosProfessores.filter(professorDeletado => professorDeletado.id !== idProfessor));
@@ -88,13 +84,15 @@ function Professor() {
        
     }
 
-    function carregarDados(professor) {
+    async function carregarDados(professorID) {
+        const response = await api.get(`professores/${professorID}`);
+
         setclickEditarButton(true)
-        setidProfessorEditar(professor.id)
-        setInputNome(professor.nome)
-        setInputCpf(professor.cpf)
-        setInputTitulo(professor.titulo_academico)
-        setInputDisciplinaId(professor.disciplina_id)
+        setidProfessorEditar(response.data.id)
+        setInputNome(response.data.nome)
+        setInputCpf(response.data.cpf)
+        setInputTitulo(response.data.titulo_academico)
+        setInputDisciplinaId(response.data.disciplina_id)
     }
 
     useEffect(()=> {
@@ -162,9 +160,9 @@ function Professor() {
                             {todosProfessores?.map((val, key) => { 
                                 return (
                                     <div className="conjunto_bodyselect" key={key}>
-                                        <li key={key}><BodySelect icone={LogoProfessor} dados={val} nomeItem={nomeDisciplina(val.disciplina_id)}/></li>
+                                        <li key={key}><BodySelect icone={LogoProfessor} dados_two={val.nome} dados_three={val.cpf} dados_four={val.titulo_academico} dados_five={nomeDisciplina(val.disciplina_id)} lista_itens={null}/></li>
                                         <div className="botoes_edite_menos">
-                                            <li className="botao_editar_class" onClick={() => carregarDados(todosProfessores.find(e => e.id === val.id))}><img id="botao_editar" src={BotaoEditar} alt="icone"/></li>
+                                            <li className="botao_editar_class" onClick={() => carregarDados(val.id)}><img id="botao_editar" src={BotaoEditar} alt="icone"/></li>
                                             <li  onClick={() => deletarProfessor(val.id)}><img id="botao_menos" src={BotaoMenos} alt="icone"/></li>
                                         </div>
                                     </div>

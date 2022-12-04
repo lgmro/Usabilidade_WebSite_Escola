@@ -21,10 +21,11 @@
 
 .dados ul li:first-child {
     margin-right: 30px;
+    width: 90px;
 }
 
 .dados_two {
-    margin-right: 260px;
+    margin-right: 210px;
     width: 100px;
 }
 
@@ -42,14 +43,25 @@
     margin-right: 130px;
     width: 100px;
 }
+
+#dados_six {
+  margin-right: 100px;   
+  height: 20px;   
+  width: 150px;  
+  background-color: #98B1BA;
+  border-radius: 10px;
+  color: #000000;
+  font-size: 16px;
+  border: 0;
+}
 @media (max-width: 1700px) {
     .dados ul li:first-child {
-        margin-right: 0px;
+        margin-right: 30px;
         margin-left: 0px;
     }
     
     .dados_two {
-        margin-right: 155px;
+        margin-right: 120px;
         width: 100px;
     }
     
@@ -76,6 +88,7 @@
     }
     .dados ul li:first-child {
         margin-right: 0px;
+        width: 40px;
     }
     
     .dados_two {

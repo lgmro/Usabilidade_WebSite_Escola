@@ -12,7 +12,7 @@ import api from "../../service/Api.js";
 function Aluno() {
     const [inputNome, setInputNome] = useState("")
     const [inputCpf, setInputCpf] = useState("")
-    const [inputMatricula, setInputMatricula] = useState("")
+    const [inputMatricula, setInputMatricula] = useState(0)
     const [inputSalaId, setInputSalaId] = useState(0)
     const [todosAlunos, setTodosAlunos] = useState([])
     const [todasSalas, setTodasSalas] = useState([])
@@ -21,7 +21,7 @@ function Aluno() {
 
 
     async function cadastrarAluno() {
-        const response = await api.post('professor', {
+        const response = await api.post('Alunos', {
             nome: inputNome,
             cpf: inputCpf,
             numero_matricula: inputMatricula,
@@ -39,14 +39,14 @@ function Aluno() {
 
         setInputNome("")
         setInputCpf("")
-        setInputMatricula("")
+        setInputMatricula(0)
         setInputSalaId(0)
 
         window.location.reload()
     }
 
     async function atualizarAluno() {
-        const response = await api.put("professor", {
+        const response = await api.put("Alunos", {
             id: idAlunoEditar,
             nome: inputNome,
             cpf: inputCpf,
@@ -57,7 +57,7 @@ function Aluno() {
         if(response.status === 200) {
             setTodosAlunos(todosAlunos.map((aluno, key) => {
                  if(aluno.id === idAlunoEditar) {
-                        return {...aluno, nome: inputNome, cpf: inputCpf, numero_matricula: inputMatricula, sala_id: inputSalaId}
+                        return {...aluno, nomedisciplinas: inputNome, cpf: inputCpf, numero_matricula: inputMatricula, sala_id: inputSalaId}
                 } else {
                     return aluno
                 }
@@ -67,7 +67,7 @@ function Aluno() {
         setclickEditarButton(false)
         setInputNome("")
         setInputCpf("")
-        setInputMatricula("")
+        setInputMatricula(0)
         setInputSalaId(0)
         setidAlunoEditar(0)
 
@@ -75,11 +75,7 @@ function Aluno() {
     }
 
     async function deletarAluno(idAluno) {
-        const response = await api.delete("professor", {
-            data: {
-                id: idAluno
-            }
-        });
+        const response = await api.delete(`Alunos/${idAluno}`);
 
         if(response.status === 200) {
             setTodosAlunos(todosAlunos.filter(alunoDeletado => alunoDeletado.id !== idAluno));
@@ -87,18 +83,19 @@ function Aluno() {
        
     }
 
-    function carregarDados(aluno) {
+    async function carregarDados(idAluno) {
+        const response = await api.get(`Alunos/${idAluno}`);
         setclickEditarButton(true)
-        setidAlunoEditar(aluno.id)
-        setInputNome(aluno.nome)
-        setInputCpf(aluno.cpf)
-        setInputMatricula(aluno.numero_matricula)
-        setInputSalaId(aluno.sala_id)
+        setidAlunoEditar(response.data.id)
+        setInputNome(response.data.nome)
+        setInputCpf(response.data.cpf)
+        setInputMatricula(response.data.numero_matricula)
+        setInputSalaId(response.data.sala_id)
     }
 
     useEffect(()=> {
         async function getAlunos() {
-            const response = await api.get('professores')
+            const response = await api.get('alunos')
             setTodosAlunos(response.data)    
         }
         getAlunos()
@@ -106,7 +103,7 @@ function Aluno() {
 
     useEffect(()=> {
         async function getSalas() {
-            const response = await api.get('disciplinas')
+            const response = await api.get('salas')
             setTodasSalas(response.data)
         }
         getSalas()
@@ -131,7 +128,7 @@ function Aluno() {
                 btnAtualizar.style.background = "#26335D"
             }
 
-            if(inputNome.trim().length === 0 || inputCpf.trim().length === 0 || inputMatricula.trim().length === 0 || inputSalaId === 0 || clickEditarButton === true) {
+            if(inputNome.trim().length === 0 || inputCpf.trim().length === 0 || inputMatricula === 0 || inputSalaId === 0 || clickEditarButton === true) {
                 btnCadastrar.disabled = true;
                 btnCadastrar.style.background = "#5a6896"
             } else {
@@ -161,9 +158,9 @@ function Aluno() {
                             {todosAlunos?.map((val, key) => { 
                                 return (
                                     <div className="conjunto_bodyselect" key={key}>
-                                        <li key={key}><BodySelect icone={LogoAluno} dados={val} nomeItem={nomeSala(val.sala_id)}/></li>
+                                        <li key={key}><BodySelect icone={LogoAluno} dados_two={val.nome} dados_three={val.cpf} dados_four={val.numero_matricula} dados_five={nomeSala(val.sala_id)} lista_itens={null}/></li>
                                         <div className="botoes_edite_menos">
-                                            <li className="botao_editar_class" onClick={() => carregarDados(todosAlunos.find(e => e.id === val.id))}><img id="botao_editar" src={BotaoEditar} alt="icone"/></li>
+                                            <li className="botao_editar_class" onClick={() => carregarDados(val.id)}><img id="botao_editar" src={BotaoEditar} alt="icone"/></li>
                                             <li  onClick={() => deletarAluno(val.id)}><img id="botao_menos" src={BotaoMenos} alt="icone"/></li>
                                         </div>
                                     </div>

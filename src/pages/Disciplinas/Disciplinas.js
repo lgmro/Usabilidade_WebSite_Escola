@@ -19,7 +19,7 @@ function Disciplinas() {
 
 
     async function cadastrarDisciplina() {
-        const response = await api.post('disciplina', {
+        const response = await api.post('disciplinas', {
             nome: inputNome,
             sala_id: inputSalaId
         })
@@ -38,8 +38,9 @@ function Disciplinas() {
     }
 
     async function atualizarDisciplina() {
-        const response = await api.put("disciplina", {
+        const response = await api.put("disciplinas", {
             id: idDisciplinaEditar,
+            nome: inputNome,
             sala_id: inputSalaId 
         });
 
@@ -62,11 +63,7 @@ function Disciplinas() {
     }
 
     async function deletarDisciplina(idDisciplina) {
-        const response = await api.delete("disciplina", {
-            data: {
-                id: idDisciplina
-            }
-        });
+        const response = await api.delete(`disciplinas/${idDisciplina}`);
 
         if(response.status === 200) {
             setTodasDisciplinas(todasDisciplinas.filter(disciplinaDeletada => disciplinaDeletada.id !== idDisciplina));
@@ -74,31 +71,34 @@ function Disciplinas() {
        
     }
 
-    function carregarDados(disciplina) {
+    async function carregarDados(disciplinaID) {
+        const response = await api.get(`disciplinas/${disciplinaID}`);
+
         setclickEditarButton(true)
-        setidDisciplinaEditar(disciplina.id)
-        setInputNome(disciplina.nome)
-        setInputSalaId(disciplina.sala_id)
+        setidDisciplinaEditar(disciplinaID)
+        setInputNome(response.data.nome)
+        setInputSalaId(response.data.sala_id)
     }
 
     useEffect(()=> {
         async function getDisciplinas() {
             const response = await api.get('disciplinas')
             setTodasDisciplinas(response.data)    
+            console.log(response.data)
         }
         getDisciplinas()
     }, [])
 
     useEffect(()=> {
         async function getSalas() {
-            const response = await api.get('disciplinas')
+            const response = await api.get('salas')
             setTodasSalas(response.data)
         }
         getSalas()
     }, [])
 
     const nomeSala = (id) => {
-        const currentId = id
+        const currentId = parseInt(id)
         const foundName = todasSalas.find((item) => item.id === currentId)
         return foundName?.nome
     }
@@ -132,23 +132,23 @@ function Disciplinas() {
         <div className="page_container_aluno">
             <div className="content_wrap_aluno">
                 <div>     
-                    <Cadastro campo_um="Nome:" campo_dois="" campo_tres="" campo_quatro="Nome da Sala:" lista_itens={todasSalas} onChangeCampoUm={setInputNome} valueCampoQuatro={inputSalaId}/>
+                    <Cadastro campo_um="Nome:" campo_dois="" campo_tres="" campo_quatro="Nome da Sala:" lista_itens={todasSalas} onChangeCampoUm={setInputNome} onChangeCampoQuatro={setInputSalaId} valueCampoUm={inputNome} valueCampoQuatro={inputSalaId}/>
                 </div>
                 <div className="botoes_aluno">
                     <Botoes onclick_botao_cadastrar={cadastrarDisciplina} onclick_botao_atualizar={atualizarDisciplina}/>
                 </div>
                 <div className="body_select">
                     <div className="titles_select">
-                        <BodySelectTitles campo_um="Nome:" campo_dois=" " campo_tres=" " campo_quatro="Sala:"/>
+                        <BodySelectTitles campo_um="Nome" campo_dois="" campo_tres="" campo_quatro="Sala"/>
                     </div>
                     <div className="listar_dados">
                         <ul className="lista_select">
                             {todasDisciplinas?.map((val, key) => { 
                                 return (
                                     <div className="conjunto_bodyselect" key={key}>
-                                        <li key={key}><BodySelect icone={LogoDisciplina} dados={val} nomeItem={nomeSala(val.sala_id)}/></li>
+                                        <li key={key}><BodySelect icone={LogoDisciplina} dados_two={val.nome} dados_three="" dados_four="" dados_five={nomeSala(val.sala_id)} lista_itens={null}/></li>
                                         <div className="botoes_edite_menos">
-                                            <li className="botao_editar_class" onClick={() => carregarDados(todasDisciplinas.find(e => e.id === val.id))}><img id="botao_editar" src={BotaoEditar} alt="icone"/></li>
+                                            <li className="botao_editar_class" onClick={() => carregarDados(val.id)}><img id="botao_editar" src={BotaoEditar} alt="icone"/></li>
                                             <li  onClick={() => deletarDisciplina(val.id)}><img id="botao_menos" src={BotaoMenos} alt="icone"/></li>
                                         </div>
                                     </div>

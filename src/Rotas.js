@@ -4,7 +4,7 @@ import Aluno from "./pages/Aluno/Aluno.js";
 import Turma from "./pages/Turma/Turma";
 import Boletim from "./pages/Boletim/Boletim";
 import Disciplinas from "./pages/Disciplinas/Disciplinas";
-// import Matricular from "./pages/Matricular/Matricular.js";
+import Matricular from "./pages/Matricular/Matricular.js";
 import BemVindo from "./pages/BemVindo/BemVindo.js";
 
 const Rotas = () => {
@@ -16,8 +16,7 @@ const Rotas = () => {
             <Route path="/turma" element={<Turma/>}/>
             <Route path="/boletim" element={<Boletim/>}/>
             <Route path="/disciplinas" element={<Disciplinas/>}/>
-            {/* <Route path="/matricular" element={<Matricular/>}/> */}
-
+            <Route path="/matricular" element={<Matricular/>}/>
         </Routes>
     );
 }

@@ -78,7 +78,7 @@ function Cadastro(props) {
                             <option disabled defaultValue value={0}>Selecione uma opção</option>
                             {props.lista_itens.map((val, key) => {
                                 return (
-                                    <option id={val.id} key={key} value={val.id}>{val.nome}</option>
+                                    <option id={val.id} key={key} value={val.id}>{(val.nome) ? val.nome : val.id}</option>
                                 )
                             })};
                         </select>

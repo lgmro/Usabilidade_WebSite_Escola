@@ -13,22 +13,26 @@ function Aluno() {
     const [inputNome, setInputNome] = useState("")
     const [inputCpf, setInputCpf] = useState("")
     const [inputMatricula, setInputMatricula] = useState(0)
-    const [inputSalaId, setInputSalaId] = useState(0)
+    const [inputSalaId, setInputSalaId] = useState(1)
     const [todosAlunos, setTodosAlunos] = useState([])
     const [todasSalas, setTodasSalas] = useState([])
     const [clickEditarButton, setclickEditarButton] = useState(false)
     const [idAlunoEditar, setidAlunoEditar] = useState(0)   
-
+    console.log(inputSalaId)
 
     async function cadastrarAluno() {
-        const response = await api.post('Alunos', {
+        const response = await api.post('alunos', {
             nome: inputNome,
             cpf: inputCpf,
             numero_matricula: inputMatricula,
-            sala_id: inputSalaId
+            sala_id: parseInt(inputSalaId)
         })
+        
+        if (response.data === "Já existe um aluno com esse CPF e/ou Matrícula.") {
+            alert(response.data)
+        }
 
-        if (response.status === 200) {
+        if (response.data === "Cadastrado com sucesso") {
             setTodosAlunos([...todosAlunos, {
                 nome: inputNome,
                 cpf: inputCpf,
@@ -40,42 +44,41 @@ function Aluno() {
         setInputNome("")
         setInputCpf("")
         setInputMatricula(0)
-        setInputSalaId(0)
 
         window.location.reload()
     }
 
     async function atualizarAluno() {
-        const response = await api.put("Alunos", {
-            id: idAlunoEditar,
-            nome: inputNome,
-            cpf: inputCpf,
-            numero_matricula: inputMatricula,
-            sala_id: inputSalaId 
-        });
+            const response = await api.put(`alunos/${idAlunoEditar}`, {
+                nome: inputNome,
+                cpf: inputCpf,
+                numero_matricula: inputMatricula,
+            });
 
-        if(response.status === 200) {
-            setTodosAlunos(todosAlunos.map((aluno, key) => {
-                 if(aluno.id === idAlunoEditar) {
-                        return {...aluno, nomedisciplinas: inputNome, cpf: inputCpf, numero_matricula: inputMatricula, sala_id: inputSalaId}
-                } else {
-                    return aluno
-                }
-            }))
-        }
+            if(response.status === 200) {
+                setTodosAlunos(todosAlunos.map((aluno, key) => {
+                     if(aluno.id === idAlunoEditar) {
+                            return {...aluno, nomedisciplinas: inputNome, cpf: inputCpf, numero_matricula: inputMatricula, sala_id: inputSalaId}
+                    } else {
+                        return aluno
+                    }
+                }))
+            }
+        
         
         setclickEditarButton(false)
         setInputNome("")
         setInputCpf("")
-        setInputMatricula(0)
-        setInputSalaId(0)
         setidAlunoEditar(0)
+        
+        let inputCPF = document.getElementById("input_dois")
+        inputCPF.disabled = false;
 
         window.location.reload()
     }
 
     async function deletarAluno(idAluno) {
-        const response = await api.delete(`Alunos/${idAluno}`);
+        const response = await api.delete(`alunos/${idAluno}`);
 
         if(response.status === 200) {
             setTodosAlunos(todosAlunos.filter(alunoDeletado => alunoDeletado.id !== idAluno));
@@ -84,13 +87,16 @@ function Aluno() {
     }
 
     async function carregarDados(idAluno) {
-        const response = await api.get(`Alunos/${idAluno}`);
+        const response = await api.get(`alunos/${idAluno}`);
         setclickEditarButton(true)
         setidAlunoEditar(response.data.id)
         setInputNome(response.data.nome)
         setInputCpf(response.data.cpf)
         setInputMatricula(response.data.numero_matricula)
         setInputSalaId(response.data.sala_id)
+
+        let inputCPF = document.getElementById("input_dois")
+        inputCPF.disabled = true;
     }
 
     useEffect(()=> {
@@ -119,6 +125,9 @@ function Aluno() {
         function ativarDesativarBotoes() {
             let btnCadastrar = document.getElementById("btn_cadastrar")
             let btnAtualizar = document.getElementById("btn_atualizar")
+            let inputSelectSala = document.getElementById("input_quatro")
+
+            inputSelectSala.disabled = true;
 
             if (clickEditarButton === false) {
                 btnAtualizar.disabled = true;
@@ -128,7 +137,7 @@ function Aluno() {
                 btnAtualizar.style.background = "#26335D"
             }
 
-            if(inputNome.trim().length === 0 || inputCpf.trim().length === 0 || inputMatricula === 0 || inputSalaId === 0 || clickEditarButton === true) {
+            if(inputNome.trim().length === 0 || inputCpf.trim().length === 0 || inputMatricula === 0 || clickEditarButton === true) {
                 btnCadastrar.disabled = true;
                 btnCadastrar.style.background = "#5a6896"
             } else {
@@ -138,7 +147,6 @@ function Aluno() {
         }
     ativarDesativarBotoes()
     }, [inputNome, inputCpf, inputMatricula, inputSalaId, clickEditarButton])
-
 
     return (
         <div className="page_container_aluno">

@@ -27,7 +27,11 @@ function Professor() {
                 disciplina_id: inputDisciplinaId
         })
 
-        if (response.status === 200) {
+        if (response.data === "Já existe um professor com esse CPF.") {
+            alert(response.data)
+        }
+
+        if (response.status === "Cadastrado com sucesso") {
             setTodosProfessores([...todosProfessores, {
                 nome: inputNome,
                 cpf: inputCpf,
@@ -46,12 +50,10 @@ function Professor() {
     }
 
     async function atualizarProfessor() {
-        const response = await api.put("professores", {
-            id: idProfessorEditar,
+        const response = await api.put(`professores/${idProfessorEditar}`, {
             nome: inputNome,
             cpf: inputCpf,
             titulo_academico: inputTitulo,
-            disciplina_id: inputDisciplinaId 
         });
 
         if(response.status === 200) {
@@ -70,6 +72,12 @@ function Professor() {
         setInputTitulo("")
         setInputDisciplinaId(0)
         setidProfessorEditar(0)
+
+        let inputSelectSala = document.getElementById("input_quatro")
+        inputSelectSala.disabled = false;
+
+        let inputCPF = document.getElementById("input_dois")
+        inputCPF.disabled = false;
 
         window.location.reload()
     }
@@ -93,6 +101,12 @@ function Professor() {
         setInputCpf(response.data.cpf)
         setInputTitulo(response.data.titulo_academico)
         setInputDisciplinaId(response.data.disciplina_id)
+
+        let inputSelectSala = document.getElementById("input_quatro")
+        inputSelectSala.disabled = true;
+
+        let inputCPF = document.getElementById("input_dois")
+        inputCPF.disabled = true;
     }
 
     useEffect(()=> {

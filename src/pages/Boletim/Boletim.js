@@ -44,8 +44,7 @@ function Boletim() {
     }
 
     async function atualizarBoletim() {
-        const response = await api.put("boletins", {
-            id: idBoletimEditar,
+        const response = await api.put(`boletins/${idBoletimEditar}`, {
             turma_id: inputTurmaId,
             aluno_id: inputAlunoId,
             nota_final: inputNota,
@@ -65,6 +64,12 @@ function Boletim() {
         setInputTurmaId(0)
         setAlunoId(0)
         setInputNota(0.0)
+
+        let inputAluno = document.getElementById("input_select")
+        inputAluno.disabled = false;
+
+        let inputTurma = document.getElementById("input_quatro")
+        inputTurma.disabled = false;
 
         window.location.reload()
     }
@@ -86,6 +91,13 @@ function Boletim() {
         setInputTurmaId(response.data.turma_id)
         setAlunoId(response.data.aluno_id)
         setInputNota(response.data.nota_final)
+
+
+        let inputAluno = document.getElementById("input_select")
+        inputAluno.disabled = true;
+
+        let inputTurma = document.getElementById("input_quatro")
+        inputTurma.disabled = true;
     }
 
     useEffect(()=> {

@@ -38,8 +38,7 @@ function Disciplinas() {
     }
 
     async function atualizarDisciplina() {
-        const response = await api.put("disciplinas", {
-            id: idDisciplinaEditar,
+        const response = await api.put(`disciplinas/${idDisciplinaEditar}`, {
             nome: inputNome,
             sala_id: inputSalaId 
         });

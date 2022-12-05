@@ -55,6 +55,11 @@ input {
     font-size: 16px;
 }
 
+input:disabled {
+    background-color: #b5c5ca;
+    color: gray;
+}
+
 #input_quatro {
     background-color: #98B1BA;
     border-radius: 10px;

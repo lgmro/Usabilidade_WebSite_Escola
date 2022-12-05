@@ -1,0 +1,77 @@
+.containerTitles {
+    margin-top: 70px;
+    background-color: #D9D9D9;
+    height: 70px;
+}
+
+.titulos ul {
+    display: flex;
+    margin-left: 120px
+}
+
+.titulos ul li {
+    margin-right: 215px;
+    font-size: 24px;
+    color: #252B42;
+    white-space: nowrap;
+}
+
+.titulos ul li:last-child {
+    margin-left: 110px;
+}
+
+
+@media (max-width: 1700px) {
+    .titulos ul {
+        margin-right: 0px;
+    }
+
+    .titulos ul li {
+        margin-right: 0px;
+    }
+
+    .titulos ul li:first-child {
+        margin-left: 0px;
+        margin-right: 120px;
+
+    }
+
+    .titulos ul li:last-child {
+        margin-left: 0px;
+    }
+
+    #titulo_two {
+        margin-right: 120px;
+    }
+
+    #titulo_three {
+        margin-right: 250px;
+    }
+    
+}
+
+@media (max-width: 1456px) {
+    .titulos ul {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    .titulos ul li {
+        margin-right: 0px;
+    }
+
+    .titulos ul li:first-child {
+        margin-left: 10px;
+        margin-right: 95px;
+
+    }
+
+    #titulo_two {
+        margin-right: 45px;
+    }
+
+    #titulo_three {
+        margin-right: 190px;
+    }
+    
+}

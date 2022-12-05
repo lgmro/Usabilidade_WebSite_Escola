@@ -1,0 +1,69 @@
+.containerBodySelectTitles {
+    margin-top: 70px;
+    background-color: #D9D9D9;
+    height: 70px;
+}
+
+.titulo_dados ul {
+    display: flex;
+    margin-left: 120px
+}
+
+.titulo_dados ul li {
+    margin-right: 250px;
+    font-size: 24px;
+    color: #252B42;
+    white-space: nowrap;
+}
+
+
+@media (max-width: 1700px) {
+    .titulo_dados ul {
+        margin-right: 0px;
+    }
+
+    .titulo_dados ul li {
+        margin-right: 0px;
+    }
+
+    .titulo_dados ul li:first-child {
+        margin-left: 0px;
+        margin-right: 150px;
+
+    }
+
+    #list_titulo_two {
+        margin-right: 160px;
+    }
+
+    #list_titulo_three {
+        margin-right: 170px;
+    }
+    
+}
+
+@media (max-width: 1456px) {
+    .titulo_dados ul {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    .titulo_dados ul li {
+        margin-right: 0px;
+    }
+
+    .titulo_dados ul li:first-child {
+        margin-left: 10px;
+        margin-right: 120px;
+
+    }
+
+    #list_titulo_two {
+        margin-right: 90px;
+    }
+
+    #list_titulo_three {
+        margin-right: 110px;
+    }
+    
+}

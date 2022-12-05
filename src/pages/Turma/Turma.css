@@ -1,0 +1,20 @@
+.campos_select {
+    display: flex;
+}
+.campos_direito {
+    margin-left: 30px;
+}
+
+.campos_esquerdo {
+    right: 0;
+    position: absolute;
+    margin-right: 30px;
+}
+
+.body_turma .dados_two {
+    margin-left: 100px;
+}
+
+.titles_select {
+    margin-bottom: 0px;
+}

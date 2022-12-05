@@ -1,0 +1,29 @@
+.container_body {
+    display: flex;
+}
+
+.logo_escola {
+    right: 0;
+    position: fixed;
+    padding-right: 122px;
+    padding-top: 85px;
+}
+
+#logo_escola {
+    width: 580px;
+    height: 469px;  
+}
+
+#texto_bemvindo {
+    padding-left: 140px;
+    padding-top: 231px;
+    font-size: 56px;
+    width: 542px;
+    color: #FFFFFF;
+}
+
+#subtitulo_bemvindo {
+    padding-left: 140px;
+    font-size: 20px;
+    color: #FFFFFF;
+}

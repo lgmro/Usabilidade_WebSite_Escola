@@ -1,0 +1,93 @@
+h2 {
+    font-size: 14px;
+    white-space: nowrap;
+    color: #252B42;
+}
+
+.container_entrada_dados_direito {
+   right: 0;
+   position: absolute;
+   margin-right: 30px;
+}
+
+.container_entrada_dados_esquerdo {
+    margin-left: 30px;
+}
+
+#input_quatro {
+    margin-top: 10px;
+}
+.containerCadastro {
+    display: flex;
+    padding-top: 32px;
+}
+
+.campo_um {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.campo_tres {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.campo_dois {
+    display: flex;
+}
+
+.campo_quatro {
+    display: flex;
+}
+
+.botoes {
+    display: flex;
+    margin-left: 195px;
+}
+
+input {
+    background-color: #98B1BA;
+    border-radius: 10px;
+    color: #000000;
+    width: 250px;
+    height: 45px;
+    border: 0;
+    font-size: 16px;
+}
+
+input:disabled {
+    background-color: #b5c5ca;
+    color: gray;
+}
+
+#input_quatro {
+    background-color: #98B1BA;
+    border-radius: 10px;
+    color: #000000;
+    font-size: 16px;
+    width: 260px;
+    height: 45px;
+    border: 0;
+}
+
+.campo_um div h2 {
+    width: 75px;
+    font-size: 23px;
+ 
+}
+
+.campo_dois div h2 {
+    width: 75px;
+    font-size: 23px;
+}
+
+.campo_tres div h2 {
+    width: 200px;
+    font-size: 23px;
+ 
+}
+
+.campo_quatro div h2 {
+    width: 200px;
+    font-size: 23px;
+}

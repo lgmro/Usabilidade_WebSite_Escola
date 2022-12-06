@@ -1,12 +1,20 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
 #titulo_header {
     color: white;
-    margin-top: 30px;
-    margin-left: 134px;
-    font-size: 24px;
+    margin-top: 3rem;
+    margin-left: 13.4rem;
+    font-size: 2.4rem;
 }
 
 form {
-    margin-top: 19px;
+    margin-top: 1.9rem;
 }
 
 .header_login {
@@ -18,44 +26,41 @@ form {
 #btn_login {
     background-color: #26335D;
     width: 125px;
-    height: 45px;
-    border-radius: 5px;
+    max-width: 125px;
+    height: 90%;
+    max-height: 45px;
+    border-radius: 1.5rem;
     color: #FFFFFF;
     align-items: center;
     border: 0;
-    margin-left: 20px;
-    margin-right: 66px;
+    margin-left: 2.0rem;
+    margin-right: 6.6rem;
+    cursor: pointer;
+    font-size: 1.4rem;
 }
 
 #btn_login:hover {
     background-color: #394670;
 }
 
-#input_username {
-    background-color: #224957;
-    border-radius: 10px;
-    color: #FFFFFF;
-    width: 250px;
-    height: 45px;
-    border: 0;
-    padding-left: 10px;
-}
-
-#input_senha {
-    background-color: #224957;
-    border-radius: 10px;
-    color: #FFFFFF;
-    width: 250px;
-    height: 45px;
-    border: 0;
-    padding-left: 10px;
-    margin-left: 20px;
-}
-
-::placeholder {
-    color: #FFFFFF;
-}
-
 input {
-    margin: 4px;
+    margin: 0.4rem;
+}
+
+@media (max-width: 681px){
+    html{
+        font-size: 50%;
+    }
+}
+
+@media (max-width: 546px){
+    html{
+        font-size: 40%;
+    }
+}
+
+@media (max-width: 436px){
+    html{
+        font-size: 30%;
+    }
 }

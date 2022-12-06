@@ -14,7 +14,7 @@ function Select(props) {
             <h2>{props.nome}</h2>
         </div>
         <div>
-            <select id="input_select" onChange={handleSelect} value={props.valueSelect}>
+            <select id={(props.idSelect) ? props.idSelect : "input_select"} className={"input_select_class"} onChange={handleSelect} value={props.valueSelect}>
                 <option disabled defaultValue value={0}>Selecione uma opção</option>
                 {props.lista_itens.map((val, key) => {
                     return (

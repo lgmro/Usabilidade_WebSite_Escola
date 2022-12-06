@@ -15,6 +15,7 @@ function Turma() {
     const [todasTurmas, setTodasTurmas] = useState([])
     const [todosProfessores, setTodosProfessores] = useState([])
     const [todasDisciplinas, setTodasDisciplinas] = useState([])
+    const [alunosTurma, setAlunosTurma] = useState([])
     const [clickEditarButton, setclickEditarButton] = useState(false)
     const [idTurmaEditar, setidTurmaEditar] = useState(0)  
 
@@ -98,17 +99,29 @@ function Turma() {
         async function getDisciplinas() {
             const response = await api.get('disciplinas')
             setTodasDisciplinas(response.data)
+            
         }
         getDisciplinas()
     }, [])
 
+    async function getAlunosTurma(idTurma) {
+        const response = await api.get(`turma/${idTurma}/alunosTurma`)
+        let alunos = response.data
 
-    async function getAlunosTurmas(idTurma) {
-        const response = await api.get('matricular')
-        return [response.data]
+        let arr = []
+
+        alunos.forEach(object => {
+            arr.push(object.nome);
+        });
+        console.log(arr)
+
+        setAlunosTurma(arr)
+
+        alert("Lista de alunos dessa turma: \n" + arr.map((nome, index) => {
+             return `${index+1} - ${nome}\n`
+        }))
     }
-
-
+  
     const nomeProfessor = (id) => {
         const currentId = id
         const foundName = todosProfessores.find((item) => item.id === currentId)
@@ -171,7 +184,7 @@ function Turma() {
                                 {todasTurmas?.map((val, key) => { 
                                     return (
                                         <div className="conjunto_bodyselect" key={key}>
-                                            <li key={key}><BodySelect icone={LogoTurma} dados_two={val.id} dados_three={nomeProfessor(val.professor_id)} dados_four={nomeDisciplina(val.disciplina_id)} dados_five="" lista_itens={[{id: 1, nome: "José Agusto Santos Caramujo"}]}/></li>
+                                            <li key={key}><BodySelect icone={LogoTurma} dados_two={val.id} dados_three={nomeProfessor(val.professor_id)} dados_four={nomeDisciplina(val.disciplina_id)} dados_five="" clickSelect={()=>{getAlunosTurma(val.id)}}/></li>
                                             <div className="botoes_edite_menos">
                                                 <li className="botao_editar_class" onClick={() => carregarDadosTurma(val.id)}><img id="botao_editar" src={BotaoEditar} alt="icone"/></li>
                                                 <li onClick={() => deletarTurma(val.id)}><img id="botao_menos" src={BotaoMenos} alt="icone"/></li>

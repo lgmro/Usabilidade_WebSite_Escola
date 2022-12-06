@@ -15,7 +15,6 @@ function Turma() {
     const [todasTurmas, setTodasTurmas] = useState([])
     const [todosProfessores, setTodosProfessores] = useState([])
     const [todasDisciplinas, setTodasDisciplinas] = useState([])
-    const [alunosTurma, setAlunosTurma] = useState([])
     const [clickEditarButton, setclickEditarButton] = useState(false)
     const [idTurmaEditar, setidTurmaEditar] = useState(0)  
 
@@ -113,9 +112,6 @@ function Turma() {
         alunos.forEach(object => {
             arr.push(object.nome);
         });
-        console.log(arr)
-
-        setAlunosTurma(arr)
 
         alert("Lista de alunos dessa turma: \n" + arr.map((nome, index) => {
              return `${index+1} - ${nome}\n`

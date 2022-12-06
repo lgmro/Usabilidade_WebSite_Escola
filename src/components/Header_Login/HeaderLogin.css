@@ -25,7 +25,7 @@ form {
 
 #btn_login {
     background-color: #26335D;
-    width: 90%;
+    width: 125px;
     max-width: 125px;
     height: 90%;
     max-height: 45px;
@@ -47,19 +47,19 @@ input {
     margin: 0.4rem;
 }
 
-@media (max-width: 630px){
+@media (max-width: 681px){
     html{
         font-size: 50%;
     }
 }
 
-@media (max-width: 510px){
+@media (max-width: 546px){
     html{
         font-size: 40%;
     }
 }
 
-@media (max-width: 412px){
+@media (max-width: 436px){
     html{
         font-size: 30%;
     }

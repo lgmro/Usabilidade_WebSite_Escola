@@ -1,7 +1,6 @@
 import "./BodySelect.css"
 
 function BodySelect(props) {
-
     return (
         <div className="containerBodySelect">
             <div className="dados">
@@ -26,14 +25,7 @@ function BodySelect(props) {
 
                     { props.lista_itens === null ? null 
                     : (
-                        <select id="dados_six" value={0}>
-                        <option disabled defaultValue value={0}>Alunos da turma</option>
-                        {props.lista_itens.map((val, key) => {
-                            return (
-                                <option id={val.id} key={key} value={val.id}>{(val.nome) ? val.nome : val.id}</option>
-                            )
-                        })};
-                    </select>
+                        <li><button id="btn_consultar" onClick={props.clickSelect}>Consultar</button></li>
                     )}
                                        
                 </ul>

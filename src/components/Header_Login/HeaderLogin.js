@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function HeaderLogin() {
   let navigate = useNavigate(); 
   const routeChange = () => { 
-  navigate(`/home`);
+  navigate(`/professor`);
   }
 
     return (

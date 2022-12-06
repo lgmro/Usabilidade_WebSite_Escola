@@ -1,3 +1,11 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
 .container_body {
     display: flex;
 }
@@ -5,25 +13,52 @@
 .logo_escola {
     right: 0;
     position: fixed;
-    padding-right: 122px;
-    padding-top: 85px;
+    padding-right: 12.2rem;
+    padding-top: 8.5rem;
 }
 
 #logo_escola {
-    width: 580px;
-    height: 469px;  
+    width: 58.0rem;
+    height: 46.9rem;  
 }
 
 #texto_bemvindo {
-    padding-left: 140px;
-    padding-top: 231px;
-    font-size: 56px;
-    width: 542px;
+    padding-left: 14.0rem;
+    padding-top: 23.1rem;
+    font-size: 5.6rem;
+    width: 54.2rem;
     color: #FFFFFF;
 }
 
 #subtitulo_bemvindo {
-    padding-left: 140px;
-    font-size: 20px;
+    padding-left: 14.0rem;
+    font-size: 2.0rem;
     color: #FFFFFF;
+}
+
+@media (max-width: 1180px){
+    #texto_bemvindo{
+        font-size: 4.0rem;
+    }
+    #subtitulo_bemvindo{
+        font-size: 2.0rem;
+    }
+    #logo_escola {
+        width: 29.0rem;
+        height: 23.5rem;
+        display: block;
+        margin-top: 30rem;  
+    }
+}
+
+@media (max-width: 510px){
+    html{
+        font-size: 40%;
+    }
+}
+
+@media (max-width: 412px){
+    html{
+        font-size: 30%;
+    }
 }

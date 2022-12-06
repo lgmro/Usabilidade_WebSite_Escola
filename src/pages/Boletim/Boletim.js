@@ -110,7 +110,7 @@ function Boletim() {
 
     useEffect(()=> {
         async function getTurmasId() {
-            const response = await api.get('turmas')
+            const response = await api.get('turma')
             setTodasTurmasID(response.data)
         }
         getTurmasId()

@@ -1,3 +1,11 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
 .page_container_aluno {
     display: flex;
     flex-direction: column;
@@ -18,17 +26,17 @@
 }
 
 .botao_editar_class {
-    margin-right: 80px;
+    margin-right: 8.0rem;
 }
 
 #botao_editar{
-    width: 30px;
-    height: 30px;
+    width: 3.0rem;
+    height: 3.0rem;
 }
 
 #botao_menos{
-    width: 30px;
-    height: 30px;
+    width: 3.0rem;
+    height: 3.0rem;
 }
 
 .body_select {
@@ -45,7 +53,7 @@
 .botoes_aluno {
     right: 0;
     position: absolute;
-    margin-right: 30px;
+    margin-right: 3.0rem;
 }
 
 .lista_select {
@@ -66,7 +74,7 @@
 
 @media (max-width: 1700px) {
     .botao_editar_class {
-        margin-right: 70px;
+        margin-right: 7.0rem;
     }
 }
 
@@ -78,6 +86,45 @@
 
 @media (max-width: 1146px) {
     .botao_editar_class {
-        margin-right: 10px;
+        margin-right: 1.0rem;
+    }
+}
+
+@media(max-width:1080px){
+    #botao_menos{
+        width: 2.0rem;
+        height: 2.0rem;
+        margin-left: -6rem;
+    }
+    #botao_editar{
+        width: 2.0rem;
+        height: 2.0rem;
+        margin-left: -7.0rem;
+    }
+}
+
+@media(max-width:908px){
+    #botao_menos{
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-left: -6rem;
+    }
+    #botao_editar{
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-left: -7.0rem;
+    }
+}
+
+@media(max-width:645px){
+    #botao_menos{
+        width: 1.0rem;
+        height: 1.0rem;
+        margin-left: -6rem;
+    }
+    #botao_editar{
+        width: 1.0rem;
+        height: 1.0rem;
+        margin-left: -7.0rem;
     }
 }

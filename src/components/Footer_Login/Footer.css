@@ -27,8 +27,14 @@ body{
 
 li {
     margin: 1.0rem 0;
-    letter-spacing: 0.02rem;
+    letter-spacing: 0.2px;
     color: #737373;
     list-style: none;
     font-size: 1.4rem;
+}
+
+@media(max-width:580px){
+    .dados_escola {
+        margin-left: 2.0rem;
+    }
 }

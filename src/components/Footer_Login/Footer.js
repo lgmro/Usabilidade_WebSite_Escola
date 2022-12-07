@@ -1,11 +1,26 @@
+import { useState, useEffect } from 'react';
+import api from "../../service/Api.js";
 import "./Footer.css"
 
 function Footer() {
+    const [razaoSocial, setRazaoSocial] = useState("")
+    const [CNPJ, setCNPJ] = useState("")
+
+    useEffect(()=> {
+        async function getBoletins() {
+            let idEscola = 1
+            const response = await api.get(`escola/${idEscola}`)
+            setRazaoSocial(response.data.nome)   
+            setCNPJ(response.data.cnpj) 
+        }
+        getBoletins()
+    }, [])
+
     return (
         <div className="container">
             <div className="dados_escola">
                 <div>
-                    <h2 id="razao_social">Hogwarts de Azkaban LTDA - 17.530.028/0001-70</h2>
+                    <h2 id="razao_social">{razaoSocial + " - " + CNPJ}</h2>
                 </div>
                 
                 <ul>

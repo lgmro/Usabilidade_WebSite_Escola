@@ -1,0 +1,77 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+.botoes {
+    display: flex;
+}
+
+.botoes div {
+    padding: 5px;
+}
+
+#btn_atualizar {
+    background-color: #26335D;
+    width: 12.5rem;
+    height: 4.5rem;
+    border-radius: 0.5rem;
+    color: #FFFFFF;
+    align-items: center;
+    border: 0;
+}
+
+#btn_cadastrar {
+    background-color: #26335D;
+    width: 12.5rem;
+    height: 4.5rem;
+    border-radius: 0.5rem;
+    color: #FFFFFF;
+    align-items: center;
+    border: 0;
+}
+
+#btn_atualizar:hover {
+    background-color: #394670;
+}
+
+#btn_atualizar:disabled {
+    background-color: #5a6896;
+}
+
+#btn_cadastrar:disabled {
+    background-color: #5a6896;
+}
+
+#btn_cadastrar:hover {
+    background-color: #394670;
+}
+
+@media(max-width:930px){
+    #btn_atualizar {
+        width: 8.5rem;
+        height: 3.0rem;
+    }
+    
+    #btn_cadastrar {
+        width: 8.5rem;
+        height: 3.0rem;
+    }
+}
+
+@media(max-width:665px){
+    #btn_atualizar {
+        width: 4.5rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
+    }
+    
+    #btn_cadastrar {
+        width: 4.5rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
+    }
+}

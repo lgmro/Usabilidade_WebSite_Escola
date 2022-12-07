@@ -1,0 +1,9 @@
+.botoes_boletim {
+    right: 0;
+    position: absolute;
+    margin-right: 30px;
+}
+
+.select_alunos {
+    margin-left: 30px;
+}

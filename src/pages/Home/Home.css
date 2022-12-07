@@ -1,0 +1,18 @@
+.page_container_home {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content_wrap {
+    flex: 1;
+}
+
+.container_conteudo {
+    display: flex;
+}
+
+.body_menus {
+    background-color: white;
+    width: 100%;
+}

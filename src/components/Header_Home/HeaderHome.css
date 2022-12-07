@@ -1,0 +1,36 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+.header_home {
+    display: flex;
+    justify-content: space-between;
+    height: 9.1rem;
+    background-color: #224957;
+}
+
+.dados_funcionario {
+  color: white;
+  padding-right: 8.7rem;
+}
+
+.dados_funcionario h3 {
+    margin-bottom: 0.7rem;
+    margin-top: 1.6rem;
+}
+
+#logo_escola_home {
+    width: 9.6rem;
+    height: 7.7rem;
+    padding-left: 1.3rem;
+}
+
+@media(max-width:391px){
+    .dados_funcionario {
+        font-size: 1.2rem;
+      }
+}

@@ -1,0 +1,40 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+.container {
+    background-color: #fff;
+    text-align: left;
+    padding: 2.0rem;
+    font-size: 1.8rem;
+    bottom: 0;
+    position: relative;
+}
+
+#razao_social {
+    margin-left: 4.0rem;
+    color: #252B42;
+    font-size: 1.6rem;
+}
+
+.dados_escola {
+    margin-left: 13.4rem;
+}
+
+li {
+    margin: 1.0rem 0;
+    letter-spacing: 0.2px;
+    color: #737373;
+    list-style: none;
+    font-size: 1.4rem;
+}
+
+@media(max-width:580px){
+    .dados_escola {
+        margin-left: 2.0rem;
+    }
+}

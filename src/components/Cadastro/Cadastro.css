@@ -1,0 +1,239 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+    white-space: nowrap;
+    color: #252B42;
+}
+
+.container_entrada_dados_direito {
+   right: 0;
+   position: absolute;
+   margin-right: 3.0rem;
+}
+
+.container_entrada_dados_esquerdo {
+    margin-left: 3.0rem;
+}
+
+#input_quatro {
+    margin-top: 1.0rem;
+}
+.containerCadastro {
+    display: flex;
+    padding-top: 3.2rem;
+}
+
+.campo_um {
+    display: flex;
+    margin-bottom: 2.5rem;
+}
+
+.campo_tres {
+    display: flex;
+    margin-bottom: 2.5rem;
+}
+
+.campo_dois {
+    display: flex;
+}
+
+.campo_quatro {
+    display: flex;
+}
+
+.botoes {
+    display: flex;
+    margin-left: 19.5rem;
+}
+
+input {
+    background-color: #98B1BA;
+    border-radius: 10px;
+    color: #000000;
+    width: 25.0rem;
+    height: 4.5rem;
+    border: 0;
+    font-size: 1.6rem;
+}
+
+input:disabled {
+    background-color: #b5c5ca;
+    color: gray;
+}
+
+#input_quatro {
+    background-color: #98B1BA;
+    border-radius: 10px;
+    color: #000000;
+    font-size: 1.6rem;
+    width: 26.0rem;
+    height: 4.5rem;
+    border: 0;
+}
+
+.campo_um div h2 {
+    width: 7.5rem;
+    font-size: 2.3rem;
+ 
+}
+
+.campo_dois div h2 {
+    width: 7.5rem;
+    font-size: 2.3rem;
+}
+
+.campo_tres div h2 {
+    width: 20.0rem;
+    font-size: 2.3rem;
+ 
+}
+
+.campo_quatro div h2 {
+    width: 20.0rem;
+    font-size: 2.3rem;
+}
+
+@media(max-width:930px){
+    .campo_um div h2 {
+        font-size: 1.8rem;
+    }
+    
+    .campo_dois div h2 {
+        font-size: 1.8rem;
+    }
+    
+    .campo_tres div h2 {
+        font-size: 1.8rem;
+    }
+    
+    .campo_quatro div h2 {
+        font-size: 1.8rem;
+    }
+    .campo_um {
+        display: block;
+        margin-bottom: 2.5rem;
+    }
+    
+    .campo_tres {
+        display: block;
+        margin-bottom: 2.5rem;
+    }
+    
+    .campo_dois {
+        display: block;
+    }
+    
+    .campo_quatro {
+        display: block;
+    }
+
+    input {
+        width: 25.0rem;
+        height: 3.0rem;
+        font-size: 1.2rem;
+    }
+    #input_quatro {
+        width: 25.0rem;
+        height: 3.0rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media(max-width:665px){
+    .campo_um div h2 {
+        font-size: 1.2rem;
+    }
+    
+    .campo_dois div h2 {
+        font-size: 1.2rem;
+    }
+    
+    .campo_tres div h2 {
+        font-size: 1.2rem;
+    }
+    
+    .campo_quatro div h2 {
+        font-size: 1.2rem;
+    }
+    .campo_um {
+        display: block;
+        margin-bottom: 2.5rem;
+    }
+    
+    .campo_tres {
+        display: block;
+        margin-bottom: 2.5rem;
+    }
+    
+    .campo_dois {
+        display: block;
+    }
+    
+    .campo_quatro {
+        display: block;
+    }
+
+    input {
+        width: 15.0rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
+    }
+    #input_quatro {
+        width: 15.0rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media(max-width:490px){
+    .campo_um div h2 {
+        font-size: 0.8rem;
+    }
+    
+    .campo_dois div h2 {
+        font-size: 0.8rem;
+    }
+    
+    .campo_tres div h2 {
+        font-size: 0.8rem;
+    }
+    
+    .campo_quatro div h2 {
+        font-size: 0.8rem;
+    }
+    .campo_um {
+        display: block;
+        margin-bottom: 2.5rem;
+    }
+    
+    .campo_tres {
+        display: block;
+        margin-bottom: 2.5rem;
+    }
+    
+    .campo_dois {
+        display: block;
+    }
+    
+    .campo_quatro {
+        display: block;
+    }
+
+    input {
+        width: 5.0rem;
+        height: 0.8rem;
+        font-size:0.8rem ;
+    }
+    #input_quatro {
+        width: 6.0rem;
+        height: 0.8rem;
+        font-size: 0.8rem;
+    }
+}

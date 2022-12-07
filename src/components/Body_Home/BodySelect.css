@@ -1,6 +1,14 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
 .containerBodySelect {
     background-color: #D9D9D9;
-    height: 60px;
+    height: 6.0rem;
 }
 
 .dados ul {
@@ -8,76 +16,76 @@
 }
 
 #logo_select {
-    width: 40px;
-    height: 40px;
+    width: 4.0rem;
+    height: 4.0rem;
 }
 
 .dados ul li {
-    font-size: 14px;
+    font-size: 1.4rem;
     color: #252B42;
     white-space: nowrap;
     
 }
 
 .dados ul li:first-child {
-    margin-right: 30px;
-    width: 90px;
+    margin-right: 3.0rem;
+    width: 9.0rem;
 }
 
 .dados_two {
-    margin-right: 210px;
-    width: 100px;
+    margin-right: 21.0rem;
+    width: 10.0rem;
 }
 
 .dados_three {
-    margin-right: 260px;
-    width: 60px;
+    margin-right: 26.0rem;
+    width: 6.0rem;
 }
 
 .dados_four {
-    margin-right: 330px;
-    width: 100px;
+    margin-right: 33.0rem;
+    width: 10.0rem;
 }
 
 .dados_five {
-    margin-right: 130px;
-    width: 100px;
+    margin-right: 13.0rem;
+    width: 10.0rem;
 }
 
 #btn_consultar {
-  margin-right: 100px;   
-  height: 20px;   
-  width: 150px;  
+  margin-right: 10.0rem;   
+  height: 2.0rem;   
+  width: 15.0rem;  
   background-color: #98B1BA;
-  border-radius: 10px;
+  border-radius: 1.0rem;
   color: #000000;
-  font-size: 16px;
+  font-size: 1.6rem;
   border: 0;
 }
 @media (max-width: 1700px) {
     .dados ul li:first-child {
-        margin-right: 30px;
+        margin-right: 3.0rem;
         margin-left: 0px;
     }
     
     .dados_two {
-        margin-right: 120px;
-        width: 100px;
+        margin-right: 12.0rem;
+        width: 10.0rem;
     }
     
     .dados_three {
-        margin-right: 160px;
-        width: 60px;
+        margin-right: 16.0rem;
+        width: 6.0rem;
     }
     
     .dados_four {
-        margin-right: 260px;
-        width: 100px;
+        margin-right: 26.0rem;
+        width: 10.0rem;
     }
     
     .dados_five {
-        margin-right: 130px;
-        width: 100px;
+        margin-right: 13.0rem;
+        width: 10.0rem;
     }
 
 }
@@ -88,22 +96,84 @@
     }
     .dados ul li:first-child {
         margin-right: 0px;
-        width: 40px;
+        width: 4.0rem;
     }
     
     .dados_two {
-        margin-right: 100px;
+        margin-right: 10.0rem;
     }
     
     .dados_three {
-        margin-right: 90px;
+        margin-right: 9.0rem;
     }
     
     .dados_four {
-        margin-right: 200px;
+        margin-right: 20.0rem;
     }
     
     .dados_five {
-        margin-right: 130px;
+        margin-right: 13.0rem;
+    }
+}
+
+@media(max-width:1080px){
+    #logo_select {
+        width: 3.0rem;
+        height: 3.0rem;
+    }
+    .dados ul li {
+        font-size: 1.2rem;
+    }
+}
+
+@media(max-width:908px){
+    #logo_select {
+        width: 2.0rem;
+        height: 2.0rem;
+    }
+    .dados ul li {
+        font-size: 0.8rem;
+        margin-left: -2.0rem;
+    }
+    .dados_two {
+        margin-right: 2.5rem;
+    }
+    
+    .dados_three {
+        margin-right: 5.0rem;
+    }
+    
+    .dados_four {
+        margin-right: 9.0rem;
+    }
+    
+    .dados_five {
+        margin-right: 9.5rem;
+    }
+}
+
+@media(max-width:625px){
+    #logo_select {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    .dados ul li {
+        font-size: 0.5rem;
+        margin-left: -2.0rem;
+    }
+    .dados_two {
+        margin-right: 0.01rem;
+    }
+    
+    .dados_three {
+        margin-right: 1.5rem;
+    }
+    
+    .dados_four {
+        margin-right: 3.0rem;
+    }
+    
+    .dados_five {
+        margin-right: 4.5rem;
     }
 }
